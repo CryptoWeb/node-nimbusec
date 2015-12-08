@@ -1,0 +1,47 @@
+Nimbusec client API library for Node.js
+=======================================
+
+## Usage Example
+```javascript
+var nimbusecAPI = require('nimbusec');
+
+var api = new nimbusecAPI('NIMBUSEC-KEY', 'NIMBUSEC-SECRET');
+api.findDomains(null, function(err, domains) {
+
+    if (err) {
+        console.log('An error occured : ');
+        console.log(' - code : '+ err.statusCode);
+        console.log(' - message : '+ err.message);
+        process.exit(1);
+    }
+
+    console.log('My domains are :');
+    for (var i = 0; i < domains.length; i++) {
+        console.log('  - ' + domains[i].name);
+    }
+});
+```
+
+## Commands
+
+### Generate HTML documentation
+```bash
+$ grunt doc
+```
+
+### Generate README.md file
+```bash
+$ grunt shell:generateReadme
+```
+
+### Check the coding style
+```bash
+$ grunt shell:checkCodingStyle
+```
+
+## To Do
+* Implement /v2/user/* part of the API
+* Implement /v2/domain/<id>/screenshot/* part of the API when available
+
+## API Reference
+{{>main}}

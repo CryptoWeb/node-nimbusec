@@ -1,0 +1,24 @@
+{
+  "name": "nimbusec",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Nimbusec client API library for Node.js",
+  "main": "lib/index.js",
+  "author": "CryptoWeb <contact@cryptoweb.fr> (https://www.cryptoweb.fr/)",
+  "license": "MIT",
+  "dependencies": {
+    "oauth": "0.9.x"
+  },
+  "devDependencies": {
+    "jsdoc": "3.3.x",
+    "jsdoc-to-markdown" : "1.2.x",
+    "grunt-cli": "0.1.13",
+    "grunt-jsdoc": "0.6.x",
+    "grunt-shell": "1.1.x",
+    "jscs": "2.6.x"
+  },
+  "scripts": {
+      "generateReadme": "./node_modules/jsdoc-to-markdown/bin/cli.js --src lib/index.js -P  -t README.tpl.hbs > README.md",
+      "checkCodingStyle": "./node_modules/jscs/bin/jscs -c jscs.json lib/index.js"
+  }
+}
