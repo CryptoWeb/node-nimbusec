@@ -1,11 +1,14 @@
 {
   "name": "nimbusec",
-  "version": "2.0.0",
-  "private": true,
+  "version": "2.0.0-alpha.1",
   "description": "Nimbusec client API library for Node.js",
   "main": "lib/index.js",
   "author": "CryptoWeb <contact@cryptoweb.fr> (https://www.cryptoweb.fr/)",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/CryptoWeb/node-nimbusec.git"
+  },
   "dependencies": {
     "oauth": "0.9.x"
   },
