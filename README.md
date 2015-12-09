@@ -71,6 +71,7 @@ $ grunt shell:checkCodingStyle
     * [.getDomainMetadata(domainID, callback)](#NimbusecAPI+getDomainMetadata)
     * [._getOrDelete(getOrDeleteFn, uri, callback)](#NimbusecAPI+_getOrDelete) ℗
     * [._postOrPut(postOrPutFn, uri, filter, callback)](#NimbusecAPI+_postOrPut) ℗
+    * [._parseResponse(err, data, response, callback)](#NimbusecAPI+_parseResponse) ℗
     * [._get(uri, filter, callback)](#NimbusecAPI+_get) ℗
     * [._delete(uri, callback)](#NimbusecAPI+_delete) ℗
     * [._post(uri, obj, callback)](#NimbusecAPI+_post) ℗
@@ -88,6 +89,7 @@ $ grunt shell:checkCodingStyle
     * [~findDomainResultsCallback](#NimbusecAPI..findDomainResultsCallback) : <code>function</code>
     * [~updateDomainResultCallback](#NimbusecAPI..updateDomainResultCallback) : <code>function</code>
     * [~getDomainMetadataCallback](#NimbusecAPI..getDomainMetadataCallback) : <code>function</code>
+    * [~apiCallCallback](#NimbusecAPI..apiCallCallback) : <code>function</code>
     * [~Domain](#NimbusecAPI..Domain) : <code>object</code>
     * [~DomainMetadata](#NimbusecAPI..DomainMetadata) : <code>object</code>
     * [~Result](#NimbusecAPI..Result) : <code>object</code>
@@ -278,7 +280,7 @@ Called by _get and _delete.
 | --- | --- | --- |
 | getOrDeleteFn | <code>function</code> | reference to the get or delete function of the oauth requester |
 | uri | <code>string</code> | URI of the resource |
-| callback | <code>string</code> | callback function |
+| callback | <code>[apiCallCallback](#NimbusecAPI..apiCallCallback)</code> | callback called at end of parsing |
 
 <a name="NimbusecAPI+_postOrPut"></a>
 #### nimbusecAPI._postOrPut(postOrPutFn, uri, filter, callback) ℗
@@ -293,7 +295,23 @@ Called by _post and _put.
 | postOrPutFn | <code>function</code> | reference to the post or put function of the oauth requester |
 | uri | <code>string</code> | URI of the resource |
 | filter | <code>string</code> | optional filter |
-| callback | <code>string</code> | callback function |
+| callback | <code>[apiCallCallback](#NimbusecAPI..apiCallCallback)</code> | callback called at end of parsing |
+
+<a name="NimbusecAPI+_parseResponse"></a>
+#### nimbusecAPI._parseResponse(err, data, response, callback) ℗
+Parse the HTTP response.
+Will get the error message in x-nimbusec-error header if present.
+Will parse JSON into JavaScript Object if present.
+
+**Kind**: instance method of <code>[NimbusecAPI](#NimbusecAPI)</code>  
+**Access:** private  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| err | <code>Object</code> | oauth requester error object |
+| data | <code>string</code> | body of the HTTP response |
+| response | <code>Object</code> | oauth requester response object |
+| callback | <code>[apiCallCallback](#NimbusecAPI..apiCallCallback)</code> | callback called at end of parsing |
 
 <a name="NimbusecAPI+_get"></a>
 #### nimbusecAPI._get(uri, filter, callback) ℗
@@ -451,6 +469,15 @@ Execute a HTTP PUT request on the API server.
 | --- | --- | --- |
 | error | <code>[Error](#NimbusecAPI..Error)</code> |  |
 | domainMetadata | <code>[DomainMetadata](#NimbusecAPI..DomainMetadata)</code> | the metadata object |
+
+<a name="NimbusecAPI..apiCallCallback"></a>
+#### NimbusecAPI~apiCallCallback : <code>function</code>
+**Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| error | <code>[Error](#NimbusecAPI..Error)</code> | Error object if error occurred |
+| data | <code>Object</code> | Object returned by API, null if error occured |
 
 <a name="NimbusecAPI..Domain"></a>
 #### NimbusecAPI~Domain : <code>object</code>
