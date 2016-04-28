@@ -67,7 +67,7 @@ $ grunt shell:checkCodingStyle
     * [.deleteAgentToken(agentToken, callback)](#NimbusecAPI+deleteAgentToken)
     * [.findInfectedDomains(filter, callback)](#NimbusecAPI+findInfectedDomains)
     * [.findDomainResults(domainID, filter, callback)](#NimbusecAPI+findDomainResults)
-    * [.updateDomainResult(resultID, result, callback)](#NimbusecAPI+updateDomainResult)
+    * [.updateDomainResult(domainID, resultID, result, callback)](#NimbusecAPI+updateDomainResult)
     * [.getDomainMetadata(domainID, callback)](#NimbusecAPI+getDomainMetadata)
     * [._getOrDelete(getOrDeleteFn, uri, callback)](#NimbusecAPI+_getOrDelete) ℗
     * [._postOrPut(postOrPutFn, uri, filter, callback)](#NimbusecAPI+_postOrPut) ℗
@@ -241,7 +241,7 @@ Read list of results of a domain depending on an optional filter.
 | callback | <code>[findDomainResultsCallback](#NimbusecAPI..findDomainResultsCallback)</code> |  |
 
 <a name="NimbusecAPI+updateDomainResult"></a>
-#### nimbusecAPI.updateDomainResult(resultID, result, callback)
+#### nimbusecAPI.updateDomainResult(domainID, resultID, result, callback)
 Update an existing DomainResult by the given object. Only status can be
 modified to acknowledge a specific result. The destination path for the
 request is determined by the ID.
@@ -251,6 +251,7 @@ request is determined by the ID.
 
 | Param | Type | Description |
 | --- | --- | --- |
+| domainID | <code>integer</code> |  |
 | resultID | <code>integer</code> | the result assigned ID (must be valid) |
 | result | <code>[Result](#NimbusecAPI..Result)</code> | the result object. Only the status field will be modified. |
 | callback | <code>[updateDomainResultCallback](#NimbusecAPI..updateDomainResultCallback)</code> |  |
@@ -519,7 +520,7 @@ Execute a HTTP PUT request on the API server.
 | Name | Type | Description |
 | --- | --- | --- |
 | id | <code>integer</code> | unique identification of a result |
-| status | <code>string</code> | status of the result (pending, acknowledged, falsepositive, removed) |
+| status | <code>string</code> | status of the result (1 = pending, 2 = acknowledged, 3 = falsepositive, 4 = removed) |
 | event | <code>string</code> | event type of result, possible values are : <ul> <li>webshell</li> <li>malware</li> <li>renamed-executable</li> <li>defacement</li> <li>cms-version</li> <li>cms-vulnerable</li> <li>blacklist</li> <li>blacklist-ref</li> <li>changed-file</li> <li>changed-template</li> <li>ssl-expires</li> <li>ssl-expired</li> <li>ssl-ciphersuite</li> <li>ssl-notrust</li> <li>ssl-protocol</li> </ul> |
 | category | <code>string</code> | category of result, possible values are : <ul> <li>applications</li> <li>blacklist</li> <li>webshell</li> <li>text</li> <li>blacklist-ref</li> <li>configuration</li> </ul> |
 | severity | <code>integer</code> | severity level of result (1 = medium to 3 = severe) |
