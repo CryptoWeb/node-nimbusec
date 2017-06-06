@@ -1,27 +1,29 @@
 {
   "name": "nimbusec",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Nimbusec client API library for Node.js",
   "main": "lib/index.js",
   "author": "CryptoWeb <contact@cryptoweb.fr> (https://www.cryptoweb.fr/)",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/CryptoWeb/node-nimbusec.git"
+    "type": "git",
+    "url": "https://github.com/CryptoWeb/node-nimbusec.git"
   },
   "dependencies": {
-    "oauth": "0.9.x"
+    "request": "^2.81.0"
   },
   "devDependencies": {
-    "jsdoc": "3.3.x",
-    "jsdoc-to-markdown" : "1.2.x",
+    "eslint": "3.19.0",
+    "grunt": "1.0.1",
     "grunt-cli": "0.1.13",
+    "grunt-eslint": "19.0.0",
     "grunt-jsdoc": "0.6.x",
     "grunt-shell": "1.1.x",
-    "jscs": "2.6.x"
+    "jsdoc": "3.3.x",
+    "jsdoc-to-markdown": "1.2.x"
   },
   "scripts": {
-      "generateReadme": "./node_modules/jsdoc-to-markdown/bin/cli.js --src lib/index.js -P  -t README.tpl.hbs > README.md",
-      "checkCodingStyle": "./node_modules/jscs/bin/jscs -c jscs.json lib/index.js"
+    "generateReadme": "./node_modules/jsdoc-to-markdown/bin/cli.js --src lib/index.js -P  -t README.tpl.hbs > README.md",
+    "checkCodingStyle": "./node_modules/eslint/bin/eslint.js ."
   }
 }
