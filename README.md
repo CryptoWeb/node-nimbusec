@@ -41,7 +41,7 @@ $ grunt shell:generateReadme
 
 ### Check the coding style
 ```bash
-$ grunt shell:checkCodingStyle
+$ grunt eslint
 ```
 
 ## To Do
@@ -50,58 +50,57 @@ $ grunt shell:checkCodingStyle
 
 ## API Reference
 <a name="NimbusecAPI"></a>
+
 ### NimbusecAPI
 **Kind**: global class  
 **Access:** public  
 
 * [NimbusecAPI](#NimbusecAPI)
-  * [new NimbusecAPI(key, secret, [options])](#new_NimbusecAPI_new)
-  * _instance_
-    * [.findBundles(filter, callback)](#NimbusecAPI+findBundles)
-    * [.findDomains(filter, callback)](#NimbusecAPI+findDomains)
-    * [.createDomain(domain, callback)](#NimbusecAPI+createDomain)
-    * [.updateDomain(domain, domainID, callback)](#NimbusecAPI+updateDomain)
-    * [.deleteDomain(domainID, callback)](#NimbusecAPI+deleteDomain)
-    * [.findAgentToken(filter, callback)](#NimbusecAPI+findAgentToken)
-    * [.createAgentToken(agentToken, callback)](#NimbusecAPI+createAgentToken)
-    * [.deleteAgentToken(agentToken, callback)](#NimbusecAPI+deleteAgentToken)
-    * [.findInfectedDomains(filter, callback)](#NimbusecAPI+findInfectedDomains)
-    * [.findDomainResults(domainID, filter, callback)](#NimbusecAPI+findDomainResults)
-    * [.updateDomainResult(domainID, resultID, result, callback)](#NimbusecAPI+updateDomainResult)
-    * [.getDomainMetadata(domainID, callback)](#NimbusecAPI+getDomainMetadata)
-    * [._getOrDelete(getOrDeleteFn, uri, callback)](#NimbusecAPI+_getOrDelete) ℗
-    * [._postOrPut(postOrPutFn, uri, filter, callback)](#NimbusecAPI+_postOrPut) ℗
-    * [._parseResponse(err, data, response, callback)](#NimbusecAPI+_parseResponse) ℗
-    * [._get(uri, filter, callback)](#NimbusecAPI+_get) ℗
-    * [._delete(uri, callback)](#NimbusecAPI+_delete) ℗
-    * [._post(uri, obj, callback)](#NimbusecAPI+_post) ℗
-    * [._put(uri, obj, callback)](#NimbusecAPI+_put) ℗
-  * _inner_
-    * [~findBundlesCallback](#NimbusecAPI..findBundlesCallback) : <code>function</code>
-    * [~findDomainsCallback](#NimbusecAPI..findDomainsCallback) : <code>function</code>
-    * [~createDomainCallback](#NimbusecAPI..createDomainCallback) : <code>function</code>
-    * [~updateDomainCallback](#NimbusecAPI..updateDomainCallback) : <code>function</code>
-    * [~deleteDomainCallback](#NimbusecAPI..deleteDomainCallback) : <code>function</code>
-    * [~findAgentTokenCallback](#NimbusecAPI..findAgentTokenCallback) : <code>function</code>
-    * [~createAgentTokenCallback](#NimbusecAPI..createAgentTokenCallback) : <code>function</code>
-    * [~deleteAgentTokenCallback](#NimbusecAPI..deleteAgentTokenCallback) : <code>function</code>
-    * [~findInfectedDomainsCallback](#NimbusecAPI..findInfectedDomainsCallback) : <code>function</code>
-    * [~findDomainResultsCallback](#NimbusecAPI..findDomainResultsCallback) : <code>function</code>
-    * [~updateDomainResultCallback](#NimbusecAPI..updateDomainResultCallback) : <code>function</code>
-    * [~getDomainMetadataCallback](#NimbusecAPI..getDomainMetadataCallback) : <code>function</code>
-    * [~apiCallCallback](#NimbusecAPI..apiCallCallback) : <code>function</code>
-    * [~Domain](#NimbusecAPI..Domain) : <code>object</code>
-    * [~DomainMetadata](#NimbusecAPI..DomainMetadata) : <code>object</code>
-    * [~Result](#NimbusecAPI..Result) : <code>object</code>
-    * [~Package](#NimbusecAPI..Package) : <code>object</code>
-    * [~Agent](#NimbusecAPI..Agent) : <code>object</code>
-    * [~AgentToken](#NimbusecAPI..AgentToken) : <code>object</code>
-    * [~User](#NimbusecAPI..User) : <code>object</code>
-    * [~Notification](#NimbusecAPI..Notification) : <code>object</code>
-    * [~CMS](#NimbusecAPI..CMS) : <code>object</code>
-    * [~Error](#NimbusecAPI..Error) : <code>object</code>
+    * [new NimbusecAPI(key, secret, [options])](#new_NimbusecAPI_new)
+    * _instance_
+        * [.findBundles(filter, callback)](#NimbusecAPI+findBundles)
+        * [.findDomains(filter, callback)](#NimbusecAPI+findDomains)
+        * [.createDomain(domain, callback)](#NimbusecAPI+createDomain)
+        * [.updateDomain(domain, domainID, callback)](#NimbusecAPI+updateDomain)
+        * [.deleteDomain(domainID, callback)](#NimbusecAPI+deleteDomain)
+        * [.findAgentToken(filter, callback)](#NimbusecAPI+findAgentToken)
+        * [.createAgentToken(agentToken, callback)](#NimbusecAPI+createAgentToken)
+        * [.deleteAgentToken(agentToken, callback)](#NimbusecAPI+deleteAgentToken)
+        * [.findInfectedDomains(filter, callback)](#NimbusecAPI+findInfectedDomains)
+        * [.findDomainResults(domainID, filter, callback)](#NimbusecAPI+findDomainResults)
+        * [.updateDomainResult(domainID, resultID, result, callback)](#NimbusecAPI+updateDomainResult)
+        * [.getDomainMetadata(domainID, callback)](#NimbusecAPI+getDomainMetadata)
+        * [._parseResponse(err, data, response, callback)](#NimbusecAPI+_parseResponse) ℗
+        * [._get(uri, filter, callback)](#NimbusecAPI+_get) ℗
+        * [._delete(uri, callback)](#NimbusecAPI+_delete) ℗
+        * [._post(uri, obj, callback)](#NimbusecAPI+_post) ℗
+        * [._put(uri, obj, callback)](#NimbusecAPI+_put) ℗
+    * _inner_
+        * [~findBundlesCallback](#NimbusecAPI..findBundlesCallback) : <code>function</code>
+        * [~findDomainsCallback](#NimbusecAPI..findDomainsCallback) : <code>function</code>
+        * [~createDomainCallback](#NimbusecAPI..createDomainCallback) : <code>function</code>
+        * [~updateDomainCallback](#NimbusecAPI..updateDomainCallback) : <code>function</code>
+        * [~deleteDomainCallback](#NimbusecAPI..deleteDomainCallback) : <code>function</code>
+        * [~findAgentTokenCallback](#NimbusecAPI..findAgentTokenCallback) : <code>function</code>
+        * [~createAgentTokenCallback](#NimbusecAPI..createAgentTokenCallback) : <code>function</code>
+        * [~deleteAgentTokenCallback](#NimbusecAPI..deleteAgentTokenCallback) : <code>function</code>
+        * [~findInfectedDomainsCallback](#NimbusecAPI..findInfectedDomainsCallback) : <code>function</code>
+        * [~findDomainResultsCallback](#NimbusecAPI..findDomainResultsCallback) : <code>function</code>
+        * [~updateDomainResultCallback](#NimbusecAPI..updateDomainResultCallback) : <code>function</code>
+        * [~getDomainMetadataCallback](#NimbusecAPI..getDomainMetadataCallback) : <code>function</code>
+        * [~Domain](#NimbusecAPI..Domain) : <code>object</code>
+        * [~DomainMetadata](#NimbusecAPI..DomainMetadata) : <code>object</code>
+        * [~Result](#NimbusecAPI..Result) : <code>object</code>
+        * [~Package](#NimbusecAPI..Package) : <code>object</code>
+        * [~Agent](#NimbusecAPI..Agent) : <code>object</code>
+        * [~AgentToken](#NimbusecAPI..AgentToken) : <code>object</code>
+        * [~User](#NimbusecAPI..User) : <code>object</code>
+        * [~Notification](#NimbusecAPI..Notification) : <code>object</code>
+        * [~CMS](#NimbusecAPI..CMS) : <code>object</code>
+        * [~Error](#NimbusecAPI..Error) : <code>object</code>
 
 <a name="new_NimbusecAPI_new"></a>
+
 #### new NimbusecAPI(key, secret, [options])
 Construct a new NimbusecAPI object.
 
@@ -114,6 +113,7 @@ Construct a new NimbusecAPI object.
 | options.baseURL | <code>string</code> | Nimbusec base URL |
 
 <a name="NimbusecAPI+findBundles"></a>
+
 #### nimbusecAPI.findBundles(filter, callback)
 Read all existing bundles depending on an optional filter.
 
@@ -126,6 +126,7 @@ Read all existing bundles depending on an optional filter.
 | callback | <code>[findBundlesCallback](#NimbusecAPI..findBundlesCallback)</code> |  |
 
 <a name="NimbusecAPI+findDomains"></a>
+
 #### nimbusecAPI.findDomains(filter, callback)
 Read all existing domains depending on an optional filter.
 
@@ -138,6 +139,7 @@ Read all existing domains depending on an optional filter.
 | callback | <code>[findDomainsCallback](#NimbusecAPI..findDomainsCallback)</code> |  |
 
 <a name="NimbusecAPI+createDomain"></a>
+
 #### nimbusecAPI.createDomain(domain, callback)
 Create a domain from the given object.
 
@@ -150,6 +152,7 @@ Create a domain from the given object.
 | callback | <code>[createDomainCallback](#NimbusecAPI..createDomainCallback)</code> |  |
 
 <a name="NimbusecAPI+updateDomain"></a>
+
 #### nimbusecAPI.updateDomain(domain, domainID, callback)
 Update an existing domain by the given object. To modify only certain fields
 of the domain you can include just these fields inside of the domain object
@@ -165,6 +168,7 @@ you pass. The destination path for the request is determined by the ID.
 | callback | <code>[updateDomainCallback](#NimbusecAPI..updateDomainCallback)</code> |  |
 
 <a name="NimbusecAPI+deleteDomain"></a>
+
 #### nimbusecAPI.deleteDomain(domainID, callback)
 Delete a specific domain.
 The destination path for the request is determined by the ID.
@@ -178,6 +182,7 @@ The destination path for the request is determined by the ID.
 | callback | <code>[deleteDomainCallback](#NimbusecAPI..deleteDomainCallback)</code> |  |
 
 <a name="NimbusecAPI+findAgentToken"></a>
+
 #### nimbusecAPI.findAgentToken(filter, callback)
 Read all existing tokens depending on an optional filter.
 
@@ -190,6 +195,7 @@ Read all existing tokens depending on an optional filter.
 | callback | <code>[findAgentTokenCallback](#NimbusecAPI..findAgentTokenCallback)</code> |  |
 
 <a name="NimbusecAPI+createAgentToken"></a>
+
 #### nimbusecAPI.createAgentToken(agentToken, callback)
 Create an server agent token from the given object.
 In the following step this token can be used to run the server agent.
@@ -203,6 +209,7 @@ In the following step this token can be used to run the server agent.
 | callback | <code>[createAgentTokenCallback](#NimbusecAPI..createAgentTokenCallback)</code> |  |
 
 <a name="NimbusecAPI+deleteAgentToken"></a>
+
 #### nimbusecAPI.deleteAgentToken(agentToken, callback)
 Delete a specific agent token.
 The destination path for the request is determined by the ID.
@@ -216,6 +223,7 @@ The destination path for the request is determined by the ID.
 | callback | <code>[createAgentTokenCallback](#NimbusecAPI..createAgentTokenCallback)</code> |  |
 
 <a name="NimbusecAPI+findInfectedDomains"></a>
+
 #### nimbusecAPI.findInfectedDomains(filter, callback)
 Read list of infected domains depending on an optional filter.
 
@@ -228,6 +236,7 @@ Read list of infected domains depending on an optional filter.
 | callback | <code>[findInfectedDomainsCallback](#NimbusecAPI..findInfectedDomainsCallback)</code> |  |
 
 <a name="NimbusecAPI+findDomainResults"></a>
+
 #### nimbusecAPI.findDomainResults(domainID, filter, callback)
 Read list of results of a domain depending on an optional filter.
 
@@ -241,6 +250,7 @@ Read list of results of a domain depending on an optional filter.
 | callback | <code>[findDomainResultsCallback](#NimbusecAPI..findDomainResultsCallback)</code> |  |
 
 <a name="NimbusecAPI+updateDomainResult"></a>
+
 #### nimbusecAPI.updateDomainResult(domainID, resultID, result, callback)
 Update an existing DomainResult by the given object. Only status can be
 modified to acknowledge a specific result. The destination path for the
@@ -257,6 +267,7 @@ request is determined by the ID.
 | callback | <code>[updateDomainResultCallback](#NimbusecAPI..updateDomainResultCallback)</code> |  |
 
 <a name="NimbusecAPI+getDomainMetadata"></a>
+
 #### nimbusecAPI.getDomainMetadata(domainID, callback)
 Retrieve domain metadata.
 The destination path for the request is determined by the ID.
@@ -269,36 +280,8 @@ The destination path for the request is determined by the ID.
 | domainID | <code>integer</code> | 
 | callback | <code>[getDomainMetadataCallback](#NimbusecAPI..getDomainMetadataCallback)</code> | 
 
-<a name="NimbusecAPI+_getOrDelete"></a>
-#### nimbusecAPI._getOrDelete(getOrDeleteFn, uri, callback) ℗
-Execute a HTTP GET or DELETE request on the API server.
-Called by _get and _delete.
-
-**Kind**: instance method of <code>[NimbusecAPI](#NimbusecAPI)</code>  
-**Access:** private  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| getOrDeleteFn | <code>function</code> | reference to the get or delete function of the oauth requester |
-| uri | <code>string</code> | URI of the resource |
-| callback | <code>[apiCallCallback](#NimbusecAPI..apiCallCallback)</code> | callback called at end of parsing |
-
-<a name="NimbusecAPI+_postOrPut"></a>
-#### nimbusecAPI._postOrPut(postOrPutFn, uri, filter, callback) ℗
-Execute a HTTP POST or PUT request on the API server.
-Called by _post and _put.
-
-**Kind**: instance method of <code>[NimbusecAPI](#NimbusecAPI)</code>  
-**Access:** private  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| postOrPutFn | <code>function</code> | reference to the post or put function of the oauth requester |
-| uri | <code>string</code> | URI of the resource |
-| filter | <code>string</code> | optional filter |
-| callback | <code>[apiCallCallback](#NimbusecAPI..apiCallCallback)</code> | callback called at end of parsing |
-
 <a name="NimbusecAPI+_parseResponse"></a>
+
 #### nimbusecAPI._parseResponse(err, data, response, callback) ℗
 Parse the HTTP response.
 Will get the error message in x-nimbusec-error header if present.
@@ -312,9 +295,10 @@ Will parse JSON into JavaScript Object if present.
 | err | <code>Object</code> | oauth requester error object |
 | data | <code>string</code> | body of the HTTP response |
 | response | <code>Object</code> | oauth requester response object |
-| callback | <code>[apiCallCallback](#NimbusecAPI..apiCallCallback)</code> | callback called at end of parsing |
+| callback | <code>NimbusecAPI~apiCallCallback</code> | callback called at end of parsing |
 
 <a name="NimbusecAPI+_get"></a>
+
 #### nimbusecAPI._get(uri, filter, callback) ℗
 Execute a HTTP GET request on the API server.
 
@@ -328,6 +312,7 @@ Execute a HTTP GET request on the API server.
 | callback | <code>string</code> | callback function |
 
 <a name="NimbusecAPI+_delete"></a>
+
 #### nimbusecAPI._delete(uri, callback) ℗
 Execute a HTTP DELETE request on the API server.
 
@@ -340,6 +325,7 @@ Execute a HTTP DELETE request on the API server.
 | callback | <code>string</code> | callback function |
 
 <a name="NimbusecAPI+_post"></a>
+
 #### nimbusecAPI._post(uri, obj, callback) ℗
 Execute a HTTP POST request on the API server.
 
@@ -353,6 +339,7 @@ Execute a HTTP POST request on the API server.
 | callback | <code>string</code> | callback function |
 
 <a name="NimbusecAPI+_put"></a>
+
 #### nimbusecAPI._put(uri, obj, callback) ℗
 Execute a HTTP PUT request on the API server.
 
@@ -366,6 +353,7 @@ Execute a HTTP PUT request on the API server.
 | callback | <code>string</code> | callback function |
 
 <a name="NimbusecAPI..findBundlesCallback"></a>
+
 #### NimbusecAPI~findBundlesCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -375,6 +363,7 @@ Execute a HTTP PUT request on the API server.
 | packages | <code>[Array.&lt;Package&gt;](#NimbusecAPI..Package)</code> | array of selected packages objects |
 
 <a name="NimbusecAPI..findDomainsCallback"></a>
+
 #### NimbusecAPI~findDomainsCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -384,6 +373,7 @@ Execute a HTTP PUT request on the API server.
 | domains | <code>[Array.&lt;Domain&gt;](#NimbusecAPI..Domain)</code> | array of selected domain objects |
 
 <a name="NimbusecAPI..createDomainCallback"></a>
+
 #### NimbusecAPI~createDomainCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -393,6 +383,7 @@ Execute a HTTP PUT request on the API server.
 | domain | <code>[Domain](#NimbusecAPI..Domain)</code> | the created domain object |
 
 <a name="NimbusecAPI..updateDomainCallback"></a>
+
 #### NimbusecAPI~updateDomainCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -402,6 +393,7 @@ Execute a HTTP PUT request on the API server.
 | domain | <code>[Domain](#NimbusecAPI..Domain)</code> | the created domain object |
 
 <a name="NimbusecAPI..deleteDomainCallback"></a>
+
 #### NimbusecAPI~deleteDomainCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -410,6 +402,7 @@ Execute a HTTP PUT request on the API server.
 | error | <code>[Error](#NimbusecAPI..Error)</code> | 
 
 <a name="NimbusecAPI..findAgentTokenCallback"></a>
+
 #### NimbusecAPI~findAgentTokenCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -419,6 +412,7 @@ Execute a HTTP PUT request on the API server.
 | agentToken | <code>[AgentToken](#NimbusecAPI..AgentToken)</code> | array of selected agent token objects |
 
 <a name="NimbusecAPI..createAgentTokenCallback"></a>
+
 #### NimbusecAPI~createAgentTokenCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -428,6 +422,7 @@ Execute a HTTP PUT request on the API server.
 | agentToken | <code>[AgentToken](#NimbusecAPI..AgentToken)</code> | the created agent token object |
 
 <a name="NimbusecAPI..deleteAgentTokenCallback"></a>
+
 #### NimbusecAPI~deleteAgentTokenCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -436,6 +431,7 @@ Execute a HTTP PUT request on the API server.
 | error | <code>[Error](#NimbusecAPI..Error)</code> | 
 
 <a name="NimbusecAPI..findInfectedDomainsCallback"></a>
+
 #### NimbusecAPI~findInfectedDomainsCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -445,6 +441,7 @@ Execute a HTTP PUT request on the API server.
 | domains | <code>[Array.&lt;Domain&gt;](#NimbusecAPI..Domain)</code> | array of selected domains |
 
 <a name="NimbusecAPI..findDomainResultsCallback"></a>
+
 #### NimbusecAPI~findDomainResultsCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -454,6 +451,7 @@ Execute a HTTP PUT request on the API server.
 | results | <code>[Array.&lt;Result&gt;](#NimbusecAPI..Result)</code> | array of selected results |
 
 <a name="NimbusecAPI..updateDomainResultCallback"></a>
+
 #### NimbusecAPI~updateDomainResultCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -463,6 +461,7 @@ Execute a HTTP PUT request on the API server.
 | domain | <code>[Domain](#NimbusecAPI..Domain)</code> | the domain object |
 
 <a name="NimbusecAPI..getDomainMetadataCallback"></a>
+
 #### NimbusecAPI~getDomainMetadataCallback : <code>function</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 
@@ -471,16 +470,8 @@ Execute a HTTP PUT request on the API server.
 | error | <code>[Error](#NimbusecAPI..Error)</code> |  |
 | domainMetadata | <code>[DomainMetadata](#NimbusecAPI..DomainMetadata)</code> | the metadata object |
 
-<a name="NimbusecAPI..apiCallCallback"></a>
-#### NimbusecAPI~apiCallCallback : <code>function</code>
-**Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| error | <code>[Error](#NimbusecAPI..Error)</code> | Error object if error occurred |
-| data | <code>Object</code> | Object returned by API, null if error occured |
-
 <a name="NimbusecAPI..Domain"></a>
+
 #### NimbusecAPI~Domain : <code>object</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 **Properties**
@@ -495,6 +486,7 @@ Execute a HTTP PUT request on the API server.
 | fastScans | <code>Array.&lt;string&gt;</code> | landing pages of the domain scanned |
 
 <a name="NimbusecAPI..DomainMetadata"></a>
+
 #### NimbusecAPI~DomainMetadata : <code>object</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 **Properties**
@@ -513,6 +505,7 @@ Execute a HTTP PUT request on the API server.
 | size | <code>integer</code> | size of downloaded files for last deep scan (in byte) |
 
 <a name="NimbusecAPI..Result"></a>
+
 #### NimbusecAPI~Result : <code>object</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 **Properties**
@@ -539,6 +532,7 @@ Execute a HTTP PUT request on the API server.
 | reason | <code>string</code> | reason why a domain/URL is blacklisted |
 
 <a name="NimbusecAPI..Package"></a>
+
 #### NimbusecAPI~Package : <code>object</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 **Properties**
@@ -558,6 +552,7 @@ Execute a HTTP PUT request on the API server.
 | engines | <code>Array.&lt;string&gt;</code> | list of used anti-virus engines |
 
 <a name="NimbusecAPI..Agent"></a>
+
 #### NimbusecAPI~Agent : <code>object</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 **Properties**
@@ -573,6 +568,7 @@ Execute a HTTP PUT request on the API server.
 | url | <code>string</code> | URL were agent can be downloaded from |
 
 <a name="NimbusecAPI..AgentToken"></a>
+
 #### NimbusecAPI~AgentToken : <code>object</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 **Properties**
@@ -587,6 +583,7 @@ Execute a HTTP PUT request on the API server.
 | version | <code>integer</code> | last agent version that was seen for this key |
 
 <a name="NimbusecAPI..User"></a>
+
 #### NimbusecAPI~User : <code>object</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 **Properties**
@@ -606,6 +603,7 @@ Execute a HTTP PUT request on the API server.
 | signatureKey | <code>string</code> | secret for SSO (only used when creating or updating a user) |
 
 <a name="NimbusecAPI..Notification"></a>
+
 #### NimbusecAPI~Notification : <code>object</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 **Properties**
@@ -620,6 +618,7 @@ Execute a HTTP PUT request on the API server.
 | blacklist | <code>integer</code> | level for blacklist notifications (see result severity, >3 = disabled) |
 
 <a name="NimbusecAPI..CMS"></a>
+
 #### NimbusecAPI~CMS : <code>object</code>
 **Kind**: inner typedef of <code>[NimbusecAPI](#NimbusecAPI)</code>  
 **Properties**
@@ -631,6 +630,7 @@ Execute a HTTP PUT request on the API server.
 | Path | <code>string</code> | 
 
 <a name="NimbusecAPI..Error"></a>
+
 #### NimbusecAPI~Error : <code>object</code>
 Error object passed in first argument of callbacks.
 
